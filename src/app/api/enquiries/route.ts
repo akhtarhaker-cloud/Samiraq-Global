@@ -15,7 +15,8 @@ export async function POST(request: Request) {
     });
     if (error) throw error;
     return NextResponse.json({ ok: true });
-  } catch {
+  } catch (error) {
+    console.error("ENQUIRY ERROR:",error);
     return NextResponse.json({ error: "Enquiries are not configured yet. Please contact us by WhatsApp." }, { status: 503 });
   }
 }
